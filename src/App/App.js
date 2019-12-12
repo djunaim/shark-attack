@@ -1,28 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+import 'bootstrap/dist/css/bootstrap.min.css';
+import studentData from '../helpers/data/studentData';
+
+class App extends React.Component {
+  state = {
+    students: [],
+  }
+
+  componentDidMount() {
+    const students = studentData.livingStudents();
+    this.setState({ students });
+  }
+
+  render() {
+    return (
+      <div className="App">
         <button className="btn btn-danger">Danger</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        {/* <LivingStudents students={this.state.students}/> */}
+      </div>
+    );
+  }
 }
 
 export default App;
