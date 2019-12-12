@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './SharkTank.scss';
 
 import Student from '../Students/Students';
 import studentShape from '../../helpers/propz/studentShape';
