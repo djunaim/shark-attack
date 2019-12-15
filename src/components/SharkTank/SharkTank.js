@@ -8,6 +8,13 @@ import studentShape from '../../helpers/propz/studentShape';
 class SharkTank extends React.Component {
   static propTypes = {
     students: PropTypes.arrayOf(studentShape.studentShape),
+    followTheLight: PropTypes.func,
+  }
+
+  killEvent = (e) => {
+    const { followTheLight, students } = this.props;
+    e.preventDefault();
+    followTheLight(students.id);
   }
 
   render() {
@@ -15,6 +22,7 @@ class SharkTank extends React.Component {
     const studentCards = students.map((student) => <Student key={student.id} student={student}/>);
     return (
       <div className="sharkTank container">
+        <button className="btn btn-danger" onClick={this.killEvent}>SHARK TANK</button>
         <div className="row">
           {studentCards}
         </div>
