@@ -15,10 +15,25 @@ class App extends React.Component {
     this.setState({ students });
   }
 
+  // randomStudent() {
+  //   const studentPosition = Math.floor(Math.random() * studentData.livingStudents());
+  //   const students = studentData.livingStudents();
+
+  //   this.followTheLight(studentId);
+  // }
+
+  followTheLight = () => {
+    const students = studentData.livingStudents();
+    const studentPosition = Math.floor(Math.random() * students.length);
+    const studentId = students[studentPosition].id;
+    studentData.followTheLight(studentId);
+    this.setState({ students });
+  }
+
   render() {
     return (
       <div className="App">
-        <SharkTank students={this.state.students}/>
+        <SharkTank students={this.state.students} followTheLight={this.followTheLight}/>
       </div>
     );
   }
