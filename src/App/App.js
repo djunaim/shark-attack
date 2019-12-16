@@ -4,6 +4,7 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import studentData from '../helpers/data/studentData';
 import SharkTank from '../components/SharkTank/SharkTank';
+import Graveyard from '../components/Graveyard/Graveyard';
 
 class App extends React.Component {
   state = {
@@ -15,13 +16,6 @@ class App extends React.Component {
     this.setState({ students });
   }
 
-  // randomStudent() {
-  //   const studentPosition = Math.floor(Math.random() * studentData.livingStudents());
-  //   const students = studentData.livingStudents();
-
-  //   this.followTheLight(studentId);
-  // }
-
   followTheLight = () => {
     const students = studentData.livingStudents();
     const studentPosition = Math.floor(Math.random() * students.length);
@@ -30,10 +24,26 @@ class App extends React.Component {
     this.setState({ students });
   }
 
+  dearlyBeloved = () => {
+    const students = studentData.dearlyBeloved();
+    this.setState({ students });
+    console.log(students);
+  }
+
+  renderView = () => {
+    const { students } = this.state;
+    if (!students.isDead) {
+      return (<SharkTank students={this.state.students} followTheLight={this.followTheLight}/>);
+    }
+    return (<Graveyard students={this.state.students} dearlyBeloved={this.dearlyBeloved}/>);
+  }
+
   render() {
     return (
       <div className="App">
-        <SharkTank students={this.state.students} followTheLight={this.followTheLight}/>
+      {
+        this.renderView()
+       }
       </div>
     );
   }

@@ -12,9 +12,9 @@ class SharkTank extends React.Component {
   }
 
   killEvent = (e) => {
-    const { followTheLight, students } = this.props;
+    const { followTheLight } = this.props;
     e.preventDefault();
-    followTheLight(students.id);
+    followTheLight();
   }
 
   render() {
