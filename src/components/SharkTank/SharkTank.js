@@ -8,13 +8,13 @@ import studentShape from '../../helpers/propz/studentShape';
 class SharkTank extends React.Component {
   static propTypes = {
     students: PropTypes.arrayOf(studentShape.studentShape),
-    followTheLight: PropTypes.func,
+    followLight: PropTypes.func,
   }
 
   killEvent = (e) => {
-    const { followTheLight } = this.props;
+    const { followLight } = this.props;
     e.preventDefault();
-    followTheLight();
+    followLight();
   }
 
   render() {

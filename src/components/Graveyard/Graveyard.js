@@ -6,12 +6,12 @@ import Student from '../Students/Students';
 
 class Graveyard extends React.Component {
   static propTypes = {
-    dearlyBeloved: PropTypes.arrayOf(studentShape.studentShape),
+    deadStudents: PropTypes.arrayOf(studentShape.studentShape),
   }
 
   render() {
-    const { students } = this.props.dearlyBeloved;
-    const studentCards = students.map((student) => <Student key={student.id} sudent={student}/>);
+    const { deadStudents } = this.props;
+    const studentCards = deadStudents.map((deadStudent) => <Student key={deadStudent.id} deadStudent={deadStudent}/>);
     return (
       <div className="graveYard container">
         <div className="row">
