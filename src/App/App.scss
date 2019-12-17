@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  .sharkTankDiv {
+    flex: 1 0;
+  }
+  .graveyardDiv {
+    flex: 1 0;
+  }
 }
 
 .App-logo {
