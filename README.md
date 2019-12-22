@@ -14,7 +14,7 @@ In this game of survival, the shark will attack students in the class at random 
 * React
 
 ## Screenshots
-![]()
+![homepage](https://raw.githubusercontent.com/djunaim/shark-attack/master/src/screenshots/homepage.PNG)
 
 ## Run this Project
 * Clone down project from Github
